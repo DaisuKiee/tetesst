@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE BIG UGLY WEBSITE - Redesigned</title>
+    <title>LearnHub - Educational Platform</title>
     <style>
         * {
             margin: 0;
@@ -12,380 +12,417 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            padding: 20px;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
         }
 
+        /* Header - Primacy Effect */
         header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 3.5em;
-            font-weight: 900;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 10px;
-            letter-spacing: -2px;
-        }
-
-        .tagline {
-            font-size: 1.2em;
-            color: #666;
-            font-weight: 500;
-        }
-
-        .greeting {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-
-        .greeting h2 {
-            color: #764ba2;
-            margin-bottom: 10px;
-            font-size: 1.8em;
-        }
-
-        .search-bar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 15px 20px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 1em;
-            transition: all 0.3s ease;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .card.featured {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-        }
-
-        .card.featured .card-title {
-            color: white;
-        }
-
-        .card.featured .card-description {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .card-category {
-            display: inline-block;
-            padding: 5px 12px;
-            background: rgba(102, 126, 234, 0.1);
-            color: #667eea;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .card.featured .card-category {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-        }
-
-        .card-title {
-            font-size: 1.3em;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 10px;
-            line-height: 1.3;
-        }
-
-        .card-description {
-            color: #666;
-            font-size: 0.95em;
-            line-height: 1.5;
-        }
-
-        .card-link {
-            display: inline-block;
-            margin-top: 15px;
-            color: #667eea;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .card.featured .card-link {
-            color: white;
-        }
-
-        .card-link:hover {
-            transform: translateX(5px);
-        }
-
-        footer {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            margin-top: 30px;
-        }
-
-        footer p {
-            color: #666;
-            font-size: 0.95em;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5em;
-            }
-
-            .content-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .filter-tabs {
+            padding: 25px 40px;
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
             gap: 10px;
-            flex-wrap: wrap;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        /* Main Dashboard - Chunking */
+        .dashboard {
+            padding: 40px;
+        }
+
+        .welcome-section {
+            margin-bottom: 35px;
+        }
+
+        .welcome-section h1 {
+            color: #2d3748;
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .welcome-section p {
+            color: #718096;
+            font-size: 16px;
+        }
+
+        /* Progress Card - Attention Management */
+        .progress-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 35px;
+            box-shadow: 0 10px 25px rgba(240, 147, 251, 0.3);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 20px;
         }
 
-        .filter-tab {
-            padding: 10px 20px;
-            background: rgba(255, 255, 255, 0.95);
-            border: 2px solid transparent;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            color: #666;
+        .progress-header h2 {
+            font-size: 24px;
         }
 
-        .filter-tab:hover, .filter-tab.active {
-            background: #667eea;
+        .streak {
+            background: rgba(255,255,255,0.3);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .progress-bar-container {
+            background: rgba(255,255,255,0.3);
+            height: 12px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            background: white;
+            height: 100%;
+            width: 68%;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Chunked Content Sections */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .chunk-card {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 4px solid;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .chunk-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .chunk-card.active {
+            border-left-color: #48bb78;
+            background: #f0fff4;
+        }
+
+        .chunk-card.pending {
+            border-left-color: #ed8936;
+            background: #fffaf0;
+        }
+
+        .chunk-card.upcoming {
+            border-left-color: #4299e1;
+            background: #ebf8ff;
+        }
+
+        .chunk-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .chunk-card.active .chunk-icon {
+            background: #48bb78;
             color: white;
-            transform: translateY(-2px);
+        }
+
+        .chunk-card.pending .chunk-icon {
+            background: #ed8936;
+            color: white;
+        }
+
+        .chunk-card.upcoming .chunk-icon {
+            background: #4299e1;
+            color: white;
+        }
+
+        .chunk-card h3 {
+            color: #2d3748;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .chunk-card p {
+            color: #718096;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .chunk-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #a0aec0;
+        }
+
+        /* Call-to-Action Section - Recency Effect */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 35px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cta-content h2 {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .cta-content p {
+            opacity: 0.9;
+            font-size: 15px;
+        }
+
+        .cta-button {
+            background: white;
+            color: #667eea;
+            padding: 15px 35px;
+            border-radius: 25px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Quick Actions - Working Memory */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 35px 0;
+        }
+
+        .quick-action {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .quick-action:hover {
+            border-color: #667eea;
+            transform: translateY(-3px);
+        }
+
+        .quick-action-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .quick-action-label {
+            color: #2d3748;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Cognitive Load Indicator */
+        .cognitive-note {
+            background: #edf2f7;
+            border-left: 4px solid #667eea;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-size: 13px;
+            color: #4a5568;
+            font-style: italic;
+        }
+
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .quick-actions {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .quick-actions {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .cta-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- PRIMACY EFFECT: Most important info at top -->
         <header>
-            <h1>THE BIG UGLY WEBSITE</h1>
-            <p class="tagline">A curated collection of the internet's most aesthetically challenged corners</p>
+            <div class="logo">
+                📚 LearnHub
+            </div>
+            <div class="user-info">
+                <span>Welcome back, Alex!</span>
+                <div class="avatar">AS</div>
+            </div>
         </header>
 
-        <div class="greeting">
-            <h2>Hi JusticeGirl! 👋</h2>
-            <p>Welcome to your newly redesigned ugly website directory</p>
-        </div>
-
-        <div class="search-bar">
-            <input type="text" class="search-input" placeholder="Search for ugly websites..." id="searchInput">
-        </div>
-
-        <div class="filter-tabs">
-            <div class="filter-tab active" data-filter="all">All</div>
-            <div class="filter-tab" data-filter="featured">Featured</div>
-            <div class="filter-tab" data-filter="social">Social Media</div>
-            <div class="filter-tab" data-filter="weird">Weird & Wonderful</div>
-            <div class="filter-tab" data-filter="design">Design Disasters</div>
-        </div>
-
-        <div class="content-grid" id="contentGrid">
-            <div class="card featured" data-category="featured">
-                <span class="card-category">🏆 Featured</span>
-                <h3 class="card-title">The Definitive Ugly Website</h3>
-                <p class="card-description">Cover your eyes and hide the valuables. Perhaps the biggest and ugliest website on the internet.</p>
-                <a href="http://www.kibo.com/webtv/webtv.html" class="card-link">Visit Site →</a>
+        <div class="dashboard">
+            <div class="welcome-section">
+                <h1>Your Learning Dashboard</h1>
+                <p>Track your progress and continue where you left off</p>
             </div>
 
-            <div class="card" data-category="design">
-                <span class="card-category">🎨 Design Fail</span>
-                <h3 class="card-title">Fugly Ugly</h3>
-                <p class="card-description">For when plain ugly websites just aren't enough. Takes ugliness to a whole new level.</p>
-                <a href="http://thebiguglywebsite.com/fugly/" class="card-link">Visit Site →</a>
+            <!-- ATTENTION MANAGEMENT: Highlighted priority task -->
+            <div class="progress-card">
+                <div class="progress-header">
+                    <h2>Current Learning Path: Web Development</h2>
+                    <div class="streak">🔥 7-day streak</div>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <p class="progress-text">68% Complete • 12 of 18 modules finished</p>
             </div>
 
-            <div class="card" data-category="featured">
-                <span class="card-category">📅 Annual Award</span>
-                <h3 class="card-title">Ugliest Page of the Year</h3>
-                <p class="card-description">So big and so ugly, we're not even sure what it's about. An absolute masterpiece of chaos.</p>
-                <a href="http://msy.com.au/" class="card-link">Visit Site →</a>
+            <div class="cognitive-note">
+                💡 Design Note: Information is grouped into 3-4 item chunks (working memory limit of 7±2 items)
             </div>
 
-            <div class="card" data-category="weird">
-                <span class="card-category">✝️ Religious</span>
-                <h3 class="card-title">Accept the Lord Ugly</h3>
-                <p class="card-description">Spreading the good word with questionable design choices. Faith and aesthetics don't always align.</p>
-                <a href="http://www.dokimos.org/ajff/" class="card-link">Visit Site →</a>
+            <!-- CHUNKING: Information grouped in meaningful categories -->
+            <div class="content-grid">
+                <div class="chunk-card active">
+                    <div class="chunk-icon">✅</div>
+                    <h3>Continue Learning</h3>
+                    <p>JavaScript Fundamentals</p>
+                    <div class="chunk-meta">
+                        <span>Module 13 of 18</span>
+                        <span>45 min left</span>
+                    </div>
+                </div>
+
+                <div class="chunk-card pending">
+                    <div class="chunk-icon">⏰</div>
+                    <h3>Due This Week</h3>
+                    <p>Project: Build a Calculator</p>
+                    <div class="chunk-meta">
+                        <span>Due in 3 days</span>
+                        <span>Not started</span>
+                    </div>
+                </div>
+
+                <div class="chunk-card upcoming">
+                    <div class="chunk-icon">📅</div>
+                    <h3>Next Up</h3>
+                    <p>Advanced CSS Layouts</p>
+                    <div class="chunk-meta">
+                        <span>Module 14</span>
+                        <span>Unlocks in 2 days</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="card" data-category="design">
-                <span class="card-category">🎭 Fantastic</span>
-                <h3 class="card-title">Fantastically Ugly Websites</h3>
-                <p class="card-description">We're not making this up. These websites exist and they're spectacularly terrible.</p>
-                <a href="http://thebiguglywebsite.com/fantasticallyugly/" class="card-link">Visit Site →</a>
+            <!-- WORKING MEMORY: Limited to 4 quick actions -->
+            <h2 style="color: #2d3748; margin-bottom: 20px;">Quick Actions</h2>
+            <div class="quick-actions">
+                <div class="quick-action">
+                    <div class="quick-action-icon">💬</div>
+                    <div class="quick-action-label">Discussion Forum</div>
+                </div>
+                <div class="quick-action">
+                    <div class="quick-action-icon">📖</div>
+                    <div class="quick-action-label">Resources</div>
+                </div>
+                <div class="quick-action">
+                    <div class="quick-action-icon">🏆</div>
+                    <div class="quick-action-label">Achievements</div>
+                </div>
+                <div class="quick-action">
+                    <div class="quick-action-icon">👥</div>
+                    <div class="quick-action-label">Study Groups</div>
+                </div>
             </div>
 
-            <div class="card" data-category="design">
-                <span class="card-category">👻 Grotesque</span>
-                <h3 class="card-title">Grotesque Websites</h3>
-                <p class="card-description">You don't want to go here. But you know you're going to anyway.</p>
-                <a href="http://thebiguglywebsite.com/grotesquewebsites/" class="card-link">Visit Site →</a>
-            </div>
-
-            <div class="card" data-category="design">
-                <span class="card-category">📸 Photoshop</span>
-                <h3 class="card-title">Photoshop Disasters</h3>
-                <p class="card-description">Ugly websites featuring even uglier photoshop mistakes. Double the disaster, double the fun.</p>
-                <a href="http://photoshopdisasters.blogspot.com/" class="card-link">Visit Site →</a>
-            </div>
-
-            <div class="card" data-category="design">
-                <span class="card-category">💀 The Worst</span>
-                <h3 class="card-title">Ugly, Dumb and Bad</h3>
-                <p class="card-description">Ugly, dumb, incoherent and bad websites. More than you can handle in one sitting.</p>
-                <a href="http://thetenbest.net/bad/" class="card-link">Visit Site →</a>
-            </div>
-
-            <div class="card" data-category="social">
-                <span class="card-category">🐦 Twitter</span>
-                <h3 class="card-title">Twitter Ugly Websites</h3>
-                <p class="card-description">Twitter's big ugly contender. Social media ugliness at its finest.</p>
-                <a href="http://twitter.com/uglywebsites" class="card-link">Visit Site →</a>
-            </div>
-
-            <div class="card" data-category="weird">
-                <span class="card-category">🍔 Restaurant</span>
-                <h3 class="card-title">Suicide Bridge Restaurant</h3>
-                <p class="card-description">An ugly website name - who wants to eat at a place called Suicide Bridge?</p>
-                <a href="http://suicidebridge.com/" class="card-link">Visit Site →</a>
-            </div>
-
-            <div class="card" data-category="weird">
-                <span class="card-category">👕 Fashion</span>
-                <h3 class="card-title">Big Ugly Sweaters</h3>
-                <p class="card-description">The biggest, ugliest sweaters on Twitter. Perfect for your next holiday party.</p>
-                <a href="http://twitter.com/buyuglysweaters" class="card-link">Visit Site →</a>
-            </div>
-
-            <div class="card" data-category="weird">
-                <span class="card-category">✏️ Beautiful</span>
-                <h3 class="card-title">Pencils</h3>
-                <p class="card-description">A well-designed, beautiful website for pencil enthusiasts. Wait, what's this doing here?</p>
-                <a href="http://brandnamepencils.com/" class="card-link">Visit Site →</a>
+            <!-- RECENCY EFFECT: Primary call-to-action at bottom -->
+            <div class="cta-section">
+                <div class="cta-content">
+                    <h2>Ready to Continue?</h2>
+                    <p>Pick up where you left off in your JavaScript course</p>
+                </div>
+                <button class="cta-button">Resume Learning →</button>
             </div>
         </div>
-
-        <footer>
-            <p>© THE BIG UGLY WEBSITE - Celebrating internet ugliness since forever</p>
-            <p style="margin-top: 10px; font-size: 0.85em;">Redesigned with love (but the links are still ugly)</p>
-        </footer>
     </div>
-
-    <script>
-        const searchInput = document.getElementById('searchInput');
-        const contentGrid = document.getElementById('contentGrid');
-        const cards = contentGrid.querySelectorAll('.card');
-        const filterTabs = document.querySelectorAll('.filter-tab');
-
-        let currentFilter = 'all';
-
-        searchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            filterCards(searchTerm, currentFilter);
-        });
-
-        filterTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                filterTabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                currentFilter = tab.dataset.filter;
-                filterCards(searchInput.value.toLowerCase(), currentFilter);
-            });
-        });
-
-        function filterCards(searchTerm, filter) {
-            cards.forEach(card => {
-                const title = card.querySelector('.card-title').textContent.toLowerCase();
-                const description = card.querySelector('.card-description').textContent.toLowerCase();
-                const category = card.dataset.category;
-                
-                const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
-                const matchesFilter = filter === 'all' || category === filter;
-                
-                if (matchesSearch && matchesFilter) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        cards.forEach(card => {
-            card.addEventListener('click', (e) => {
-                if (e.target.classList.contains('card-link')) return;
-                const link = card.querySelector('.card-link');
-                if (link) window.open(link.href, '_blank');
-            });
-        });
-    </script>
 </body>
 </html>
