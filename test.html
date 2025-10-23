@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE BIG UGLY WEBSITE - Redesigned</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: 900;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            letter-spacing: -2px;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .greeting {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .greeting h2 {
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-size: 1.8em;
+        }
+
+        .search-bar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card.featured {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .card.featured .card-title {
+            color: white;
+        }
+
+        .card.featured .card-description {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .card-category {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .card.featured .card-category {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .card-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .card-description {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .card-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #667eea;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .card.featured .card-link {
+            color: white;
+        }
+
+        .card-link:hover {
+            transform: translateX(5px);
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .filter-tab {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid transparent;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .filter-tab:hover, .filter-tab.active {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>THE BIG UGLY WEBSITE</h1>
+            <p class="tagline">A curated collection of the internet's most aesthetically challenged corners</p>
+        </header>
+
+        <div class="greeting">
+            <h2>Hi JusticeGirl! 👋</h2>
+            <p>Welcome to your newly redesigned ugly website directory</p>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Search for ugly websites..." id="searchInput">
+        </div>
+
+        <div class="filter-tabs">
+            <div class="filter-tab active" data-filter="all">All</div>
+            <div class="filter-tab" data-filter="featured">Featured</div>
+            <div class="filter-tab" data-filter="social">Social Media</div>
+            <div class="filter-tab" data-filter="weird">Weird & Wonderful</div>
+            <div class="filter-tab" data-filter="design">Design Disasters</div>
+        </div>
+
+        <div class="content-grid" id="contentGrid">
+            <div class="card featured" data-category="featured">
+                <span class="card-category">🏆 Featured</span>
+                <h3 class="card-title">The Definitive Ugly Website</h3>
+                <p class="card-description">Cover your eyes and hide the valuables. Perhaps the biggest and ugliest website on the internet.</p>
+                <a href="http://www.kibo.com/webtv/webtv.html" class="card-link">Visit Site →</a>
+            </div>
+
+            <div class="card" data-category="design">
+                <span class="card-category">🎨 Design Fail</span>
+                <h3 class="card-title">Fugly Ugly</h3>
+                <p class="card-description">For when plain ugly websites just aren't enough. Takes ugliness to a whole new level.</p>
+                <a href="http://thebiguglywebsite.com/fugly/" class="card-link">Visit Site →</a>
+            </div>
+
+            <div class="card" data-category="featured">
+                <span class="card-category">📅 Annual Award</span>
+                <h3 class="card-title">Ugliest Page of the Year</h3>
+                <p class="card-description">So big and so ugly, we're not even sure what it's about. An absolute masterpiece of chaos.</p>
+                <a href="http://msy.com.au/" class="card-link">Visit Site →</a>
+            </div>
+
+            <div class="card" data-category="weird">
+                <span class="card-category">✝️ Religious</span>
+                <h3 class="card-title">Accept the Lord Ugly</h3>
+                <p class="card-description">Spreading the good word with questionable design choices. Faith and aesthetics don't always align.</p>
+                <a href="http://www.dokimos.org/ajff/" class="card-link">Visit Site →</a>
+            </div>
+
+            <div class="card" data-category="design">
+                <span class="card-category">🎭 Fantastic</span>
+                <h3 class="card-title">Fantastically Ugly Websites</h3>
+                <p class="card-description">We're not making this up. These websites exist and they're spectacularly terrible.</p>
+                <a href="http://thebiguglywebsite.com/fantasticallyugly/" class="card-link">Visit Site →</a>
+            </div>
+
+            <div class="card" data-category="design">
+                <span class="card-category">👻 Grotesque</span>
+                <h3 class="card-title">Grotesque Websites</h3>
+                <p class="card-description">You don't want to go here. But you know you're going to anyway.</p>
+                <a href="http://thebiguglywebsite.com/grotesquewebsites/" class="card-link">Visit Site →</a>
+            </div>
+
+            <div class="card" data-category="design">
+                <span class="card-category">📸 Photoshop</span>
+                <h3 class="card-title">Photoshop Disasters</h3>
+                <p class="card-description">Ugly websites featuring even uglier photoshop mistakes. Double the disaster, double the fun.</p>
+                <a href="http://photoshopdisasters.blogspot.com/" class="card-link">Visit Site →</a>
+            </div>
+
+            <div class="card" data-category="design">
+                <span class="card-category">💀 The Worst</span>
+                <h3 class="card-title">Ugly, Dumb and Bad</h3>
+                <p class="card-description">Ugly, dumb, incoherent and bad websites. More than you can handle in one sitting.</p>
+                <a href="http://thetenbest.net/bad/" class="card-link">Visit Site →</a>
+            </div>
+
+            <div class="card" data-category="social">
+                <span class="card-category">🐦 Twitter</span>
+                <h3 class="card-title">Twitter Ugly Websites</h3>
+                <p class="card-description">Twitter's big ugly contender. Social media ugliness at its finest.</p>
+                <a href="http://twitter.com/uglywebsites" class="card-link">Visit Site →</a>
+            </div>
+
+            <div class="card" data-category="weird">
+                <span class="card-category">🍔 Restaurant</span>
+                <h3 class="card-title">Suicide Bridge Restaurant</h3>
+                <p class="card-description">An ugly website name - who wants to eat at a place called Suicide Bridge?</p>
+                <a href="http://suicidebridge.com/" class="card-link">Visit Site →</a>
+            </div>
+
+            <div class="card" data-category="weird">
+                <span class="card-category">👕 Fashion</span>
+                <h3 class="card-title">Big Ugly Sweaters</h3>
+                <p class="card-description">The biggest, ugliest sweaters on Twitter. Perfect for your next holiday party.</p>
+                <a href="http://twitter.com/buyuglysweaters" class="card-link">Visit Site →</a>
+            </div>
+
+            <div class="card" data-category="weird">
+                <span class="card-category">✏️ Beautiful</span>
+                <h3 class="card-title">Pencils</h3>
+                <p class="card-description">A well-designed, beautiful website for pencil enthusiasts. Wait, what's this doing here?</p>
+                <a href="http://brandnamepencils.com/" class="card-link">Visit Site →</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>© THE BIG UGLY WEBSITE - Celebrating internet ugliness since forever</p>
+            <p style="margin-top: 10px; font-size: 0.85em;">Redesigned with love (but the links are still ugly)</p>
+        </footer>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const contentGrid = document.getElementById('contentGrid');
+        const cards = contentGrid.querySelectorAll('.card');
+        const filterTabs = document.querySelectorAll('.filter-tab');
+
+        let currentFilter = 'all';
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            filterCards(searchTerm, currentFilter);
+        });
+
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                currentFilter = tab.dataset.filter;
+                filterCards(searchInput.value.toLowerCase(), currentFilter);
+            });
+        });
+
+        function filterCards(searchTerm, filter) {
+            cards.forEach(card => {
+                const title = card.querySelector('.card-title').textContent.toLowerCase();
+                const description = card.querySelector('.card-description').textContent.toLowerCase();
+                const category = card.dataset.category;
+                
+                const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+                const matchesFilter = filter === 'all' || category === filter;
+                
+                if (matchesSearch && matchesFilter) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        cards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (e.target.classList.contains('card-link')) return;
+                const link = card.querySelector('.card-link');
+                if (link) window.open(link.href, '_blank');
+            });
+        });
+    </script>
+</body>
+</html>
